@@ -25,7 +25,7 @@ stop() {
     if [ ! -f "$PID_FILE" ]; then
         echo "SlowTV+ is not running."
         return 1
-    }
+    fi
     
     echo "Stopping SlowTV+..."
     kill $(cat "$PID_FILE")
