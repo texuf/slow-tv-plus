@@ -42,6 +42,9 @@ sequenceDiagram
     end
 ```
 
+## Pi Setup
+see: https://tailscale.com/learn/how-to-ssh-into-a-raspberry-pi
+
 ## Installation
 
 1. Clone the repository:
