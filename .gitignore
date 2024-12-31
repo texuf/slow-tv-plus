@@ -1,0 +1,6 @@
+urls.txt
+videos/*
+logs/*
+*.pid
+__pycache__/
+*.pyc
