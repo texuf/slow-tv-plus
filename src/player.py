@@ -44,6 +44,13 @@ class SlowTVPlayer:
             urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
             
         for url in urls:
+            # check to see if video exists locally and log and continue if exists
+            # Check if video already exists by looking for any files in video_dir
+            existing_videos = list(self.video_dir.glob('*'))
+            for video in existing_videos:
+                if url in video.name:
+                    logging.info(f"Video already exists locally: {video.name}")
+                    continue
             try:
                 logging.info(f"Downloading: {url}")
                 subprocess.run([
