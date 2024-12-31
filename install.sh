@@ -11,6 +11,8 @@ sudo apt-get install -y \
     vlc \
     git
 
+sudo apt install mpv youtube-dl socat
+
 # Install Python dependencies
 pip3 install -r requirements.txt
 

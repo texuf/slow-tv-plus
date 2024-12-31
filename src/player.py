@@ -54,7 +54,7 @@ class SlowTVPlayer:
             try:
                 logging.info(f"Downloading: {url}")
                 subprocess.run([
-                    'yt-dlp',
+                    'youtube-dl',
                     '--no-playlist',
                     '-f', 'best',
                     '-o', str(self.video_dir / '%(title)s.%(ext)s'),

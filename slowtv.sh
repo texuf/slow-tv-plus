@@ -5,6 +5,7 @@ APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHON_SCRIPT="$APP_DIR/src/player.py"
 PID_FILE="$APP_DIR/slowtv.pid"
 LOG_FILE="$APP_DIR/logs/slowtv.log"
+VIDEOS_DIR="$APP_DIR/videos"
 URL_FILE="$APP_DIR/urls.txt"
 
 # Function to start the application
@@ -13,7 +14,10 @@ start() {
         echo "SlowTV+ is already running."
         return 1
     fi
-    
+    # Create logs directory and file if they don't exist
+    mkdir -p "$VIDEOS_DIR"
+    mkdir -p "$(dirname "$LOG_FILE")"
+    touch "$LOG_FILE"
     echo "Starting SlowTV+..."
     python3 "$PYTHON_SCRIPT" >> "$LOG_FILE" 2>&1 &
     echo $! > "$PID_FILE"
